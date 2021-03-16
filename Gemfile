@@ -36,3 +36,5 @@ group :test do
   gem 'jsonapi-rspec'
   gem 'webmock'
 end
+
+gem 'dotenv-rails'
