@@ -8,6 +8,8 @@
 
 require 'faker'
 Meal.destroy_all
+Mod.destroy_all
+Ingredient.destroy_all
 
 title = ["breakfast", "lunch", "diner"]
 
