@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2021_03_17_094006) do
+ActiveRecord::Schema.define(version: 2021_03_17_133021) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -98,6 +98,18 @@ ActiveRecord::Schema.define(version: 2021_03_17_094006) do
     t.index ["user_id"], name: "index_my_equipements_on_user_id"
   end
 
+  create_table "my_objectifs", force: :cascade do |t|
+    t.integer "calorie", null: false
+    t.integer "age", null: false
+    t.integer "height", null: false
+    t.integer "weight", null: false
+    t.string "sexe", default: "", null: false
+    t.string "objectif", default: "", null: false
+    t.string "activity", default: "", null: false
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+  end
+
   create_table "my_performances", force: :cascade do |t|
     t.integer "repetitions"
     t.integer "weight"
@@ -107,17 +119,6 @@ ActiveRecord::Schema.define(version: 2021_03_17_094006) do
     t.datetime "updated_at", precision: 6, null: false
     t.index ["exercice_id"], name: "index_my_performances_on_exercice_id"
     t.index ["user_id"], name: "index_my_performances_on_user_id"
-    
-  create_table "my_objectifs", force: :cascade do |t|
-    t.integer "calorie"
-    t.integer "age"
-    t.integer "height"
-    t.integer "weight"
-    t.string "sexe"
-    t.string "objectif"
-    t.string "activity"
-    t.datetime "created_at", precision: 6, null: false
-    t.datetime "updated_at", precision: 6, null: false
   end
 
   create_table "users", force: :cascade do |t|
