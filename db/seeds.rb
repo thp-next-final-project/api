@@ -19,6 +19,7 @@ User.destroy_all
 Meal.destroy_all
 Mod.destroy_all
 Ingredient.destroy_all
+MyObjectif.destroy_all
 
 
 ############################
@@ -45,6 +46,9 @@ p "-----------------------"
 ############################ 
 
 title = ["breakfast", "lunch", "diner"]
+sexe = ["man", "woman"]
+objectif = ["slim", "build", "maintain"]
+activity = ["sedentary", "active", "sporty"]
 
 
 20.times do
@@ -58,6 +62,12 @@ end
 500.times do
     ingredients = Ingredient.create!(name: Faker::Food.ingredient, cal_per_something: Faker::Number.number(digits: 2), quantity: Faker::Number.number(digits: 1), weight: Faker::Number.number(digits: 3) )
 end
+
+
+# 10.times do
+#   my_objectif = MyObjectif.create!(calorie: Faker::Number.number(digits: 4), age: Faker::Number.number(digits: 2) , height: Faker::Number.number(digits: 3) , weight: Faker::Number.number(digits: 2), sexe: sexe[rand(0..1)] , objectif: objectif[rand(0..2)] , activity: activity[rand(0..2)] )
+# end
+
 
 ############################
 ##         WORKOUT        ##
@@ -191,3 +201,4 @@ p " *                               * "
 p " *          END OF SEED          * "
 p " *                               * "
 p " ********************************* "
+

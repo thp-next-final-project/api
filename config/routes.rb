@@ -5,6 +5,8 @@ Rails.application.routes.draw do
   resources :mods
   resources :meals
   resources :ingredients
+  resources :my_objectives
+
   
   # WORKOUT
   resources :my_performances, only: [:index]
