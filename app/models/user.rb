@@ -11,6 +11,7 @@ class User < ApplicationRecord
                         :age
 
   enum role: { user: 'user', admin: 'admin', coach: 'coach', chef: 'chef' }
+  belongs_to :my_objectif
 
   scope :users, -> { where(role: 'user') }
   scope :admins, -> { where(role: 'admin') }

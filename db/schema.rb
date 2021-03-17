@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2021_03_16_155800) do
+ActiveRecord::Schema.define(version: 2021_03_17_094006) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -58,6 +58,18 @@ ActiveRecord::Schema.define(version: 2021_03_16_155800) do
 
   create_table "mods", force: :cascade do |t|
     t.integer "calorie"
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+  end
+
+  create_table "my_objectifs", force: :cascade do |t|
+    t.integer "calorie"
+    t.integer "age"
+    t.integer "height"
+    t.integer "weight"
+    t.string "sexe"
+    t.string "objectif"
+    t.string "activity"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
   end
