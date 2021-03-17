@@ -19,7 +19,8 @@ User.destroy_all
 Meal.destroy_all
 Mod.destroy_all
 Ingredient.destroy_all
-MyObjectif.destroy_all
+MyEquipement.destroy_all
+Exercice.destroy_all
 
 
 ############################

@@ -98,18 +98,6 @@ ActiveRecord::Schema.define(version: 2021_03_17_133021) do
     t.index ["user_id"], name: "index_my_equipements_on_user_id"
   end
 
-  create_table "my_objectifs", force: :cascade do |t|
-    t.integer "calorie", null: false
-    t.integer "age", null: false
-    t.integer "height", null: false
-    t.integer "weight", null: false
-    t.string "sexe", default: "", null: false
-    t.string "objectif", default: "", null: false
-    t.string "activity", default: "", null: false
-    t.datetime "created_at", precision: 6, null: false
-    t.datetime "updated_at", precision: 6, null: false
-  end
-
   create_table "my_performances", force: :cascade do |t|
     t.integer "repetitions"
     t.integer "weight"
@@ -126,8 +114,14 @@ ActiveRecord::Schema.define(version: 2021_03_17_133021) do
     t.string "encrypted_password", default: "", null: false
     t.string "firstname", default: "", null: false
     t.string "lastname", default: "", null: false
-    t.integer "age", default: 25, null: false
     t.string "role", default: "user", null: false
+    t.string "sexe"
+    t.integer "weight", default: 70
+    t.float "height", default: 1.5
+    t.integer "age", default: 25
+    t.string "activity"
+    t.string "objectif"
+    t.integer "calories"
     t.string "reset_password_token"
     t.datetime "reset_password_sent_at"
     t.datetime "remember_created_at"
