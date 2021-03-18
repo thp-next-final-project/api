@@ -64,20 +64,6 @@ class GenWods
       generate_warm_up
       generate_building
     end
-    # p @wod
-    # p "#"*8
-    # p " WOD"
-    # p "#"*8
-    # @wod.each do |parts|
-    #   p "#"*8
-    #   p parts[:name]
-    #   p "#"*8
-    #   parts[:exercices].each do |exercice|
-    #     p exercice.name
-    #     p exercice.equipement_id
-    #     # p exercice.equipement.weight
-    #   end
-    # end
     return @wod
   end
 end
