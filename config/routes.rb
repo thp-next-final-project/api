@@ -10,7 +10,7 @@ Rails.application.routes.draw do
   
   # WORKOUT
   resources :my_performances, only: [:index]
-  resources :wods, only: [:index]
+  resources :wods, only: [:create]
 
   namespace :api, defaults: { format: :json } do
     resources :users, only: [:show]

@@ -83,12 +83,6 @@ exercices = [
     :cal => 100
   },
   {
-    :name => "Montées de genous",
-    :categorie => "warm_up",
-    :description => "La flemme de faire des :descriptions tout de suite",
-    :cal => 100
-  },
-  {
     :name => "Talons fesses",
     :categorie => "warm_up",
     :description => "La flemme de faire des :descriptions tout de suite",
@@ -184,9 +178,9 @@ p "-----------------------"
 p "-----------------------"
 
 
-5.times do |i|
+30.times do |i|
   MyEquipement.create!(
-    user_id: i + 1,
+    user_id: rand(1..User.all.length),
     equipement_id: rand(1..equipements.length)
   )
 end

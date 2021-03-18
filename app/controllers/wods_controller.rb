@@ -1,10 +1,15 @@
 class WodsController < ApplicationController
   before_action :authenticate_user!
 
-  def index
-    @wod = GenWods.new().perform
+  def create
+    @wod = GenWods.new(current_user).perform
 
-    render json: { wod: @wod, exercices: @wod.exercices }
+    render json: { wod: @wod }
   end
 
+  private
+
+  def params_wod
+   params.require(:wod).permit()
+  end
 end
