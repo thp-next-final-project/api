@@ -53,15 +53,26 @@ activity = ["sedentary", "active", "sporty"]
 
 
 20.times do
-  meals = Meal.create!(calorie: Faker::Number.number(digits: 3), name: Faker::Food.dish, title: title[rand(0..2)])
+  meals = Meal.create!(
+    calorie: Faker::Number.number(digits: 3),
+    name: Faker::Food.dish, 
+    title: title[rand(0..2)]
+  )
 end
 
 100.times do
-    mods = Mod.create!(calorie: Faker::Number.number(digits: 4))
+    mods = Mod.create!(
+      calorie: Faker::Number.number(digits: 4)
+    )
   end
 
 500.times do
-    ingredients = Ingredient.create!(name: Faker::Food.ingredient, cal_per_something: Faker::Number.number(digits: 2), quantity: Faker::Number.number(digits: 1), weight: Faker::Number.number(digits: 3) )
+    ingredients = Ingredient.create!(
+      name: Faker::Food.ingredient, 
+      cal_per_something: Faker::Number.number(digits: 2), 
+      quantity: Faker::Number.number(digits: 1), 
+      weight: Faker::Number.number(digits: 3)
+    )
 end
 
 

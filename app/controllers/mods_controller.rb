@@ -1,14 +1,13 @@
 class ModsController < ApplicationController
     def index
-        @mods = Mod.all
-    
+        @mods = GenMods.new(current_user).perform
         render json: @mods
       end
     
       # GET /mods/1
       def show
         set_mod
-        render json: { mod: @mod, meals: @mod.meals }
+        render json: @mod
       end
     
       

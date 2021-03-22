@@ -64,6 +64,7 @@ class GenWods
       generate_warm_up
       generate_building
     end
+    
     return @wod
   end
 end
