@@ -6,8 +6,7 @@ class User < ApplicationRecord
 
   validates :email, presence: true, uniqueness: true, format: { with: /\A[^@\s]+@([^@\s]+\.)+[^@\s]+\z/, message: "is not a valid email" }
   validates_presence_of :firstname,
-                        :lastname,
-                        :role
+                        :lastname
 
   # enum role: { user: 'user', admin: 'admin', coach: 'coach', chef: 'chef' }
 

@@ -13,7 +13,7 @@ Rails.application.routes.draw do
   resources :wods, only: [:create]
 
   namespace :api, defaults: { format: :json } do
-    resources :users, only: [:show]
+    resources :users, only: [:show, :update]
   end
   devise_for :users,
     defaults: { format: :json },
