@@ -79,7 +79,7 @@ class GenMods
 
   def perform
     return {
-      :calorie => @total_cal,
+      :calories => @total_cal,
       :meals => [
       gen_breakfast,
       gen_lunch,
