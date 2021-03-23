@@ -1,4 +1,6 @@
 class ModsController < ApplicationController
+  before_action :authenticate_user!
+
     def index
         @mods = GenMods.new(current_user).perform
         render json: @mods
