@@ -3,7 +3,7 @@ class WodsController < ApplicationController
 
   def create
     @wod = GenWods.new(current_user).perform
-    Wod.create(cal: GetWodCalories.new(current_user, @wod).perform)
+    # Wod.create(cal: GetWodCalories.new(current_user, @wod).perform)
     render json: { wod: @wod }
   end
 

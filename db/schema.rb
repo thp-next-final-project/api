@@ -38,6 +38,7 @@ ActiveRecord::Schema.define(version: 2021_03_17_133021) do
     t.integer "cal_per_something"
     t.integer "quantity"
     t.integer "weight"
+    t.integer "liter"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
   end

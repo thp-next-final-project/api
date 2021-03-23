@@ -8,11 +8,13 @@
 
 require 'faker'
 
-p " ********************************* "
-p " *                               * "
-p " *         BEGIN OF SEED         * "
-p " *                               * "
-p " ********************************* "
+puts " 
+                *********************************
+                *                               *
+                *         BEGIN OF SEED         *
+                *                               *
+                ********************************* 
+"
 
 ## /!\ A COMMENTER SI PUSH SUR GITHUB (HEROKU) /!\ ##
 User.destroy_all
@@ -36,49 +38,89 @@ Exercice.destroy_all
   )
 end
 
-p "#{tp User.all}"
-p "Creation Users... #{User.count}"
-puts "DONE"
-p "-----------------------"
-p "-----------------------"
+puts "
+        #{tp User.all}
+---------------------------------------------------------------------
+---------------------------------------------------------------------
+        Creation Users... #{User.count}
+        DONE
+---------------------------------------------------------------------
+---------------------------------------------------------------------
+"
 
 ############################
 ##          MEAL          ##
 ############################ 
 
-title = ["breakfast", "lunch", "diner"]
+title = ["breakfast", "lunch", "dinner"]
 sexe = ["man", "woman"]
 objectif = ["slim", "build", "maintain"]
 activity = ["sedentary", "active", "sporty"]
 
 
+10.times do
+  mods = Mod.create!(
+    calorie: Faker::Number.number(digits: 4)
+  )
+end
+
+@meals = []
 20.times do
-  meals = Meal.create!(
+  @meals << Meal.create!(
     calorie: Faker::Number.number(digits: 3),
     name: Faker::Food.dish, 
     title: title[rand(0..2)]
   )
 end
 
-100.times do
-    mods = Mod.create!(
-      calorie: Faker::Number.number(digits: 4)
-    )
-  end
-
 500.times do
-    ingredients = Ingredient.create!(
-      name: Faker::Food.ingredient, 
-      cal_per_something: Faker::Number.number(digits: 2), 
-      quantity: Faker::Number.number(digits: 1), 
-      weight: Faker::Number.number(digits: 3)
-    )
+  mesure = [0, 0, 0];
+  i = rand(0..2)
+  mesure[i] = rand(5..500)
+  ingredients = Ingredient.create!(
+    name: Faker::Food.ingredient, 
+    cal_per_something: Faker::Number.number(digits: 2), 
+    quantity: mesure[0], 
+    weight: mesure[1],
+    liter: mesure[2]
+  )
 end
 
 
-# 10.times do
-#   my_objectif = MyObjectif.create!(calorie: Faker::Number.number(digits: 4), age: Faker::Number.number(digits: 2) , height: Faker::Number.number(digits: 3) , weight: Faker::Number.number(digits: 2), sexe: sexe[rand(0..1)] , objectif: objectif[rand(0..2)] , activity: activity[rand(0..2)] )
-# end
+50.times do
+  JointureMeal.create!(
+    mod_id: rand(1..Mod.all.length),
+    meal_id: rand(1..Meal.all.length)
+  )
+end
+
+puts "
+---------------------------------------------------------------------
+---------------------------------------------------------------------
+        Creation JointureMeals... #{JointureMeal.count}
+        DONE
+---------------------------------------------------------------------
+---------------------------------------------------------------------
+"
+
+3.times do 
+  @meals.length.times do |i|
+    JointureIngredient.create!(
+      ingredient_id: rand(1..Ingredient.all.length),
+      meal_id: i + 1
+    )
+  end
+end 
+
+puts "
+---------------------------------------------------------------------
+---------------------------------------------------------------------
+        Creation JointureIngredients... #{JointureIngredient.count}
+        DONE
+---------------------------------------------------------------------
+---------------------------------------------------------------------
+"
+
 
 
 ############################
@@ -166,11 +208,15 @@ equipements.length.times do |i|
   )
 end
 
-p "#{tp Equipement.all}"
-p "Creation Equipements... #{Equipement.count}"
-puts "DONE"
-p "-----------------------"
-p "-----------------------"
+puts "
+---------------------------------------------------------------------
+---------------------------------------------------------------------
+        #{tp Equipement.all}
+        Creation Equipements... #{Equipement.count}
+        DONE
+---------------------------------------------------------------------
+---------------------------------------------------------------------
+"
 
 exercices.length.times do |i|
   Exercice.create!(
@@ -182,11 +228,15 @@ exercices.length.times do |i|
   )
 end
 
-p "#{tp Exercice.all}"
-p "Creation Exercices... #{Exercice.count}"
-puts "DONE"
-p "-----------------------"
-p "-----------------------"
+puts "
+---------------------------------------------------------------------
+---------------------------------------------------------------------
+        #{tp Exercice.all}
+        Creation Exercices... #{Exercice.count}
+        DONE
+---------------------------------------------------------------------
+---------------------------------------------------------------------
+"
 
 
 30.times do |i|
@@ -196,15 +246,20 @@ p "-----------------------"
   )
 end
 
-p "#{tp MyEquipement.all}"
-p "Creation MyEquipements... #{MyEquipement.count}"
-puts "DONE"
-p "-----------------------"
-p "-----------------------"
+puts "
+---------------------------------------------------------------------
+---------------------------------------------------------------------
+        #{tp MyEquipement.all}
+        Creation MyEquipements... #{MyEquipement.count}
+        DONE
+---------------------------------------------------------------------
+---------------------------------------------------------------------
+"
 
-p " ********************************* "
-p " *                               * "
-p " *          END OF SEED          * "
-p " *                               * "
-p " ********************************* "
-
+puts " 
+                  ********************************* 
+                  *                               * 
+                  *          END OF SEED          * 
+                  *                               * 
+                  ********************************* 
+"
