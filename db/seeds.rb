@@ -239,10 +239,10 @@ puts "
 "
 
 
-30.times do |i|
+User.all.length.times do |i|
   MyEquipement.create!(
-    user_id: rand(1..User.all.length),
-    equipement_id: rand(1..equipements.length)
+    user_id: i+1,
+    equipement_id: 1
   )
 end
 
