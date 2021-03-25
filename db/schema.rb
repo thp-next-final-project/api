@@ -116,12 +116,12 @@ ActiveRecord::Schema.define(version: 2021_03_17_133021) do
     t.string "firstname", default: "", null: false
     t.string "lastname", default: "", null: false
     t.string "role", default: "user", null: false
-    t.string "sexe"
+    t.string "sexe", default: ""
     t.integer "weight", default: 70
     t.float "height", default: 1.5
     t.integer "age", default: 25
-    t.string "activity"
-    t.string "objectif"
+    t.string "activity", default: ""
+    t.string "objectif", default: ""
     t.integer "calories"
     t.string "reset_password_token"
     t.datetime "reset_password_sent_at"
