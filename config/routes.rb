@@ -9,7 +9,7 @@ Rails.application.routes.draw do
 
   
   # WORKOUT
-  resources :my_performances, only: [:index]
+  resources :my_performances, only: [:index, :create]
   resources :my_equipements, only: [:index, :update, :destroy]
   resources :equipements, only: [:index]
 
