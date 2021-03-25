@@ -10,11 +10,16 @@ Rails.application.routes.draw do
   
   # WORKOUT
   resources :my_performances, only: [:index]
+  resources :my_equipements, only: [:index, :update, :destroy]
+  resources :equipements, only: [:index]
+
   resources :wods, only: [:create]
 
+  # USER
   namespace :api, defaults: { format: :json } do
     resources :users, only: [:show, :update]
   end
+
   devise_for :users,
     defaults: { format: :json },
     path: '',
