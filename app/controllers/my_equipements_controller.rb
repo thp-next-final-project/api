@@ -11,7 +11,7 @@ class MyEquipementsController < ApplicationController
   end
 
   def destroy
-    User.find(current_user.id).equipements.find(params[:id]).destroy
+    MyEquipement.where(user_id: current_user.id, equipement_id: params[:id]).destroy
   end
 
   private
