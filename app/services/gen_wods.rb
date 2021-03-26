@@ -6,19 +6,12 @@ class GenWods
   end
 
   def pick_exercices(exercices)
-    # choseen_exercices = []
-    # p exercices
-    # i = 0
-    # max = rand(2..4)
-    # t = []
-    # max.times do
-    #   t += rand(0..exercices.length)
-    # end
-    # while i <= max do
-    #   choseen_exercices << exercices[t[i]]
-    #   i += 1
-    # end
-    return exercices
+    choseen_exercices = []
+    number_of_exercices = rand(2..4)
+    number_of_exercices.times do
+      choseen_exercices << exercices[rand(0..exercices.length-1)]
+    end
+    return choseen_exercices
   end
 
   def generate_warm_up
@@ -26,7 +19,6 @@ class GenWods
     @my_equipements.each do |eq|
       exercices += Exercice.where(equipement_id: eq.equipement_id).warm_ups
     end
-
     @wod << { :name => "Echauffement", :time => { :min => rand(3..5), :sec => rand(0..60) } ,:rep_set => rand(1..3), :set => { :rep => rand(10..20), :exercices => pick_exercices(exercices) }}
   end
 
@@ -46,12 +38,26 @@ class GenWods
     @wod << { :name => "Wod", :time => { :min => rand(5..20), :sec => rand(0..60) } ,:rep_set => rand(1..3), :set => { :rep => rand(10..20), :exercices => pick_exercices(exercices) } }
   end
   
+  def generate_set_building(exercices) 
+    exercices = pick_exercices(exercices)
+    set = []
+    exercices.each do |exercice|
+      performance = MyPerformance.where(user_id: @user, exercice_id: exercice.id).last
+      if (performance)
+        set << { :rep => performance.repetitions + 1, :exercice => exercice}
+      else
+        set << { :rep => 6, :exercice => exercice}
+      end
+    end
+    return set
+  end
+
   def generate_building
     exercices = []
     @my_equipements.each do |eq|
       exercices += Exercice.where(equipement_id: eq.equipement_id).buildings
     end
-    @wod << { :name => "Renforcement",:time => { :min => 1, :sec => 0 } , :rep_set => 3, :set => { :rep => 10, :exercices => pick_exercices(exercices) } }
+    @wod << { :name => "Renforcement",:time => { :min => 1, :sec => 0 } ,:rep_set => 3, :set => generate_set_building(exercices) }
   end
 
   def perform
@@ -64,7 +70,13 @@ class GenWods
       generate_warm_up
       generate_building
     end
-    
+    # puts "#"*10
+    # puts "#"*10
+    # @wod[1][:set].each do |ex|
+    #   puts ex
+    # end
+    # puts "#"*10
+    # puts "#"*10
     return @wod
   end
 end

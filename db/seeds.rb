@@ -17,12 +17,12 @@ puts "
 "
 
 ## /!\ A COMMENTER SI PUSH SUR GITHUB (HEROKU) /!\ ##
-User.destroy_all
-Meal.destroy_all
-Mod.destroy_all
-Ingredient.destroy_all
-MyEquipement.destroy_all
-Exercice.destroy_all
+# User.destroy_all
+# Meal.destroy_all
+# Mod.destroy_all
+# Ingredient.destroy_all
+# MyEquipement.destroy_all
+# Exercice.destroy_all
 
 
 ############################
@@ -182,6 +182,137 @@ exercices = [
     :categorie => "workout",
     :description => "La flemme de faire des :descriptions tout de suite",
     :cal => 150
+  },
+  {
+    :name => "Curl Biceps",
+    :categorie => "building",
+    :description => "La flemme de faire des :descriptions tout de suite",
+    :cal => 100
+  },{
+    :name => "Développé couché",
+    :categorie => "building",
+    :description => "La flemme de faire des :descriptions tout de suite",
+    :cal => 100
+  },
+  {
+    :name => "Squat",
+    :categorie => "building",
+    :description => "La flemme de faire des :descriptions tout de suite",
+    :cal => 100
+  },
+  {
+    :name => "Tirage dos poulie haute",
+    :categorie => "building",
+    :description => "La flemme de faire des :descriptions tout de suite",
+    :cal => 100
+  },
+  {
+    :name => "Élévation latérale haltères",
+    :categorie => "building",
+    :description => "La flemme de faire des :descriptions tout de suite",
+    :cal => 100
+  },
+  {
+    :name => "Poulie haute triceps",
+    :categorie => "building",
+    :description => "La flemme de faire des :descriptions tout de suite",
+    :cal => 100
+  },
+  {
+    :name => "Tirage horizontale",
+    :categorie => "building",
+    :description => "La flemme de faire des :descriptions tout de suite",
+    :cal => 100
+  },
+  {
+    :name => "Rowing dos",
+    :categorie => "building",
+    :description => "La flemme de faire des :descriptions tout de suite",
+    :cal => 100
+  },
+  {
+    :name => "Scieur",
+    :categorie => "building",
+    :description => "La flemme de faire des :descriptions tout de suite",
+    :cal => 100
+  },
+  {
+    :name => "Traction pronation",
+    :categorie => "building",
+    :description => "La flemme de faire des :descriptions tout de suite",
+    :cal => 100
+  },
+  {
+    :name => "Traction supination",
+    :categorie => "building",
+    :description => "La flemme de faire des :descriptions tout de suite",
+    :cal => 100
+  },
+  {
+    :name => "Traction pronation",
+    :categorie => "skill",
+    :description => "La flemme de faire des :descriptions tout de suite",
+    :cal => 100
+  },
+  {
+    :name => "Traction supination",
+    :categorie => "skill",
+    :description => "La flemme de faire des :descriptions tout de suite",
+    :cal => 100
+  },
+  {
+    :name => "Squat",
+    :categorie => "skill",
+    :description => "La flemme de faire des :descriptions tout de suite",
+    :cal => 100
+  },
+  {
+    :name => "HSPU",
+    :categorie => "building",
+    :description => "La flemme de faire des :descriptions tout de suite",
+    :cal => 100
+  },
+  {
+    :name => "HSPU",
+    :categorie => "skill",
+    :description => "La flemme de faire des :descriptions tout de suite",
+    :cal => 100
+  },
+  {
+    :name => "HSPU",
+    :categorie => "workout",
+    :description => "La flemme de faire des :descriptions tout de suite",
+    :cal => 100
+  },
+  {
+    :name => "Muscle Up",
+    :categorie => "skill",
+    :description => "La flemme de faire des :descriptions tout de suite",
+    :cal => 100
+  },
+  {
+    :name => "Muscle Up",
+    :categorie => "workout",
+    :description => "La flemme de faire des :descriptions tout de suite",
+    :cal => 100
+  },
+  {
+    :name => "Deadlift",
+    :categorie => "skill",
+    :description => "La flemme de faire des :descriptions tout de suite",
+    :cal => 100
+  },
+  {
+    :name => "Deadlift",
+    :categorie => "workout",
+    :description => "La flemme de faire des :descriptions tout de suite",
+    :cal => 100
+  },
+  {
+    :name => "Deadlift",
+    :categorie => "building",
+    :description => "La flemme de faire des :descriptions tout de suite",
+    :cal => 100
   }
 ]
 equipements = [
