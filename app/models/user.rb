@@ -53,5 +53,8 @@ class User < ApplicationRecord
     when "build"
       self.calories = compute_needed_calories + compute_needed_calories * 0.1
     end
+    puts "#"*30
+    puts self.calories
   end
+
 end
