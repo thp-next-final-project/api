@@ -28,7 +28,6 @@ end
 
 group :test do
   gem 'capybara', '>= 2.15'
-  gem 'faker'
   gem 'selenium-webdriver'
   gem 'shoulda-matchers', '~> 4.0'
   gem 'vcr'
@@ -38,3 +37,4 @@ group :test do
 end
 
 gem 'dotenv-rails'
+gem 'faker'
