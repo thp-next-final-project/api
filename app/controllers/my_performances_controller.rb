@@ -2,8 +2,11 @@ class MyPerformancesController < ApplicationController
   before_action :authenticate_user!
 
   def index
-    @performances = MyPerformance.where(user_id: current_user.id)
-    
+    if params[:id]
+      @performances = MyPerformance.where(user_id: current_user.id, id: params[:id])
+    else
+      @performances = MyPerformance.where(user_id: current_user.id)
+    end
     render json: @performances
   end
 

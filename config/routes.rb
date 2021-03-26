@@ -1,6 +1,8 @@
 Rails.application.routes.default_url_options[:host] = 'localhost:3001'
 
 Rails.application.routes.draw do
+  # EXERCICES
+  resources :exercices, only: [:index, :show, :create]
   # MEAL
   resources :mods
   resources :meals
