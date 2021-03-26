@@ -6,10 +6,24 @@ class Api::UsersController < Api::BaseController
     render_jsonapi_response(@user)
   end
 
+  def update
+    if current_user.update(user_params)
+      render json: current_user
+    else
+      render json: current_user.errors.full_messages, status: :unprocessable_entity
+    end
+
+  end
+
   private
 
   def find_user
     @user = User.find(params[:id])
   end
+
+  def user_params
+    params.require(:user).permit(:firstname, :lastname, :email, :age, :weight, :height, :activity, :sexe, :objectif)
+  end
+
 
 end

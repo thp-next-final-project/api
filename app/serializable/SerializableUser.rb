@@ -1,9 +1,5 @@
 class SerializableUser < JSONAPI::Serializable::Resource
   type 'users'
 
-  attributes :email
-
-  link :self do
-    @url_helpers.api_user_url(@object.id)
-  end
+  attributes :email, :firstname, :lastname, :role, :age, :weight, :height, :activity, :sexe, :objectif
 end
