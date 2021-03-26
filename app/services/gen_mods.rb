@@ -1,6 +1,6 @@
 class GenMods
   def initialize(current_user)
-    @total_cal = 2000
+    @total_cal = current_user.calories || 1990
     @calories_by_meal = @total_cal / 3
   end
 
